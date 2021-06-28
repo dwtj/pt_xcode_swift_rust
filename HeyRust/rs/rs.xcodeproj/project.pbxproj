@@ -1,0 +1,242 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	objectVersion = 42;
+	objects = {
+		CA60ED1D85B511DB1E57CA7D = {
+			isa = PBXGroup;
+			children = (
+				CA6004F7EE02F60C91A228D4,
+ADDEDBA66A6E2,
+CA602D69B68C5DAD0BAE6FF1,
+
+			);
+			sourceTree = "<group>";
+		};
+
+		
+		CA608EBCA4FB959841FFD610 /* staticlib */ = {
+			isa = PBXFileReference;
+			explicitFileType = "archive.ar";
+			includeInIndex = 0;
+			name = librs.a;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};CA604C0CDBFBCD6CC11FA7A6 /* rs-staticlib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA6086A901BE03FDFCF04633;
+			buildPhases = (
+				CA6012CD8413BC40648B4EAB
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA602279B492E84B7B495350
+			);
+			name = "rs-staticlib";
+			productName = "librs.a";
+			productReference = CA608EBCA4FB959841FFD610;
+			productType = "com.apple.product-type.library.static";
+		};
+		CA60CE8BE2C6D8082AF7174A = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CA60E750116D543E1B44E84A;
+			buildPhases = (
+				CA6072E8EDB47F26D7DE4B63
+			);
+			dependencies = (
+			);
+			name = Cargo;
+			productName = Cargo;
+		};
+			CA6012CD8413BC40648B4EAB = {
+					isa = PBXShellScriptBuildPhase;
+					buildActionMask = 2147483647;
+					name = "Copy files (librs.a)";
+					files = (
+					);
+					inputFileListPaths = (
+					);
+					inputPaths = (
+						"$(CARGO_XCODE_PRODUCTS_DIR)/librs.a",
+					);
+					outputFileListPaths = (
+					);
+					outputPaths = (
+						"$(BUILT_PRODUCTS_DIR)/librs.a",
+					);
+					runOnlyForDeploymentPostprocessing = 0;
+					shellPath = /bin/sh;
+					shellScript = "ln -f \"${CARGO_XCODE_PRODUCTS_DIR}/librs.a\" \"${BUILT_PRODUCTS_DIR}/\"";
+				};
+				
+		CA6086A901BE03FDFCF04633 /* staticlib */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60D51DE509FFE77CA74BA8 /* Release */,
+				CA60A5DA53255301C0DC56FB /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+			CA60D51DE509FFE77CA74BA8 /* staticlib */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					PRODUCT_NAME = "rs";
+					SKIP_INSTALL = YES;
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				};
+				name = Release;
+			};
+			CA60A5DA53255301C0DC56FB /* staticlib */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					PRODUCT_NAME = "rs";
+					SKIP_INSTALL = YES;
+				INSTALL_GROUP = "";
+				INSTALL_MODE_FLAG = "";
+				INSTALL_OWNER = "";
+				};
+				name = Debug;
+			};CA6072E8EDB47F26D7DE4B63 = {
+				isa = PBXShellScriptBuildPhase;
+				buildActionMask = 2147483647;
+				name = "Cargo build";
+				files = (
+				);
+				inputFileListPaths = (
+				);
+				inputPaths = (
+					"$(SRCROOT)/Cargo.toml"
+				);
+				outputFileListPaths = (
+				);
+				outputPaths = (
+				);
+				runOnlyForDeploymentPostprocessing = 0;
+				shellPath = /bin/bash;
+				shellScript = "set -e; export PATH=$PATH:~/.cargo/bin:/usr/local/bin;
+if [ \"$ACTION\" = \"clean\" ]; then
+	cargo clean;
+else
+	cargo build $CARGO_FLAGS;
+fi
+";
+		};
+			
+				CA6004F7EE02F60C91A228D4 /* Cargo.toml */ = {
+					isa = PBXFileReference;
+					lastKnownFileType = "sourcecode.text-based-dylib-definition";
+					fileEncoding = 4;
+					path = Cargo.toml;
+					sourceTree = "<group>";
+			};
+					/* Rust needs libresolv */
+					ADDEDBA66A6E1 = {
+						isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition";
+						name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT;
+					};
+				
+				ADDEDBA66A6E2 = {
+					isa = PBXGroup;
+					children = (
+						ADDEDBA66A6E1
+					);
+					name = "Required Libraries";
+					sourceTree = "<group>";
+				};
+
+		CA602D69B68C5DAD0BAE6FF1 = {
+			isa = PBXGroup;
+			children = (
+				CA608EBCA4FB959841FFD610,
+
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+
+		CA600E00083197EA58EE47FC = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60E08BB3E4607D7A67EE78;
+			proxyType = 1;
+			remoteGlobalIDString = CA60CE8BE2C6D8082AF7174A;
+			remoteInfo = Cargo;
+		};
+
+		CA602279B492E84B7B495350 = {
+			isa = PBXTargetDependency;
+			target = CA60CE8BE2C6D8082AF7174A;
+			targetProxy = CA600E00083197EA58EE47FC;
+		};
+
+		CA60E750116D543E1B44E84A = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60FBD494058987433959B7 /* Release */,
+				CA60FF270EFF263A662CB6EC /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+
+		CA60FBD494058987433959B7 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target"; /* for cargo */
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/release"; /* for xcode scripts */
+				CARGO_FLAGS = "--release";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				PRODUCT_NAME = "rs";
+			};
+			name = Release;
+		};
+
+		CA60FF270EFF263A662CB6EC = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/cargo-target";
+				CARGO_XCODE_PRODUCTS_DIR = "$(BUILD_DIR)/cargo-target/debug";
+				CARGO_FLAGS = "";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				PRODUCT_NAME = "rs";
+			};
+			name = Debug;
+		};
+
+		CA60E08BB3E4607D7A67EE78 = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					CA604C0CDBFBCD6CC11FA7A6 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CA60CE8BE2C6D8082AF7174A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					                };
+			};
+			buildConfigurationList = CA60E750116D543E1B44E84A;
+			compatibilityVersion = "Xcode 8.0";
+			mainGroup = CA60ED1D85B511DB1E57CA7D;
+			productRefGroup = CA602D69B68C5DAD0BAE6FF1;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA604C0CDBFBCD6CC11FA7A6,
+CA60CE8BE2C6D8082AF7174A,
+
+			);
+		};
+	};
+	rootObject = CA60E08BB3E4607D7A67EE78;
+}
+	
